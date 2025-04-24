@@ -7,9 +7,12 @@ import scala.collection.mutable.ArrayBuffer
 import play.api.libs.json._
 
 case class Libro(titulo: String, idAutor: String, autor: String, anio: String, editorial: String, isbn: String)
-implicit val libroFormat: OFormat[Libro] = Json.format[Libro]
+implicit val rwLibro: ReadWriter[Libro] = macroRW
+//implicit val libroFormat: OFormat[Libro] = Json.format[Libro]
+
 case class Autor(id: String, nombre: String, apellidos: String, numLibros: String)
-implicit val autorFormat: OFormat[Autor] = Json.format[Autor]
+implicit val rwAutor: ReadWriter[Autor] = macroRW
+//implicit val autorFormat: OFormat[Autor] = Json.format[Autor]
 
 object Ej11 {
     private val client = MongoClients.create("mongodb://localhost:27017")
@@ -26,7 +29,8 @@ object Ej11 {
                 case "2" => listarLibros()
                 case "3" => actualizarLibro()
                 case "4" => eliminarLibro()
-                case "5" => salir = true
+                case "5" => leerLibrosDeJSON()
+                case "6" => salir = true
                 case _ => println("Introduce una opción válida del 1 al 5")
             }
         }
@@ -39,7 +43,8 @@ object Ej11 {
         println("2. Listar los libros")
         println("3. Actualizar libro")
         println("4. Eliminar libro")
-        println("5. Salir")
+        println("5. Leer libros de JSON")
+        println("6. Salir")
         println("----------------------")
     }
 
@@ -178,9 +183,10 @@ object Ej11 {
         val rutaJSON = os.pwd / "libro.json"
         val contLibrosJSON = os.read(rutaJSON)
         val librosJSON = uread[List[Libro]](contLibrosJSON)
-        val jsValue = Json.parse(librosJSON)
-        val librosLista: List[Libro] = jsValue.as[List[Libro]]
-        librosLista.foreach(libro => {
+    /*  val jsValue = Json.parse(librosJSON)
+        val librosLista: List[Libro] = jsValue.as[List[Libro]] 
+        librosLista.foreach(libro => {  */
+        librosJSON.foreach { libro => 
             val addLibrosToDB = new Document()
             .append("titulo", libro.titulo)
             .append("autor", libro.autor)
@@ -188,10 +194,6 @@ object Ej11 {
             .append("editorial", libro.editorial)
             .append("ISBN", libro.isbn)
             collection.insertOne(addLibrosToDB)
-
-        })
+        }
     }
-
-
-
 }
