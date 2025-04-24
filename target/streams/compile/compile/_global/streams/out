@@ -1,0 +1,31 @@
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E172] Type Error: C:\Users\Coen\Desktop\CURSO JAVA\11\src\main\scala\biblioteca.scala:180:43 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m180 |[0m        [33mval[0m [36mlibrosJSON[0m = uread[[35mList[0m[[35mLibro[0m]](contLibrosJSON)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mNo given instance of type upickle.default.Reader[List[Libro]] was found.[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mI found:[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    upickle.default.SeqLikeReader[[35mList[0m, [35mLibro[0m]([0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m      upickle.default.superTypeReader[[35mLibro[0m, [35mV[0m]([0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m        Libro.$asInstanceOf[[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          [35m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m            scala.deriving.Mirror.Product{[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m              type MirroredMonoType = Libro; type MirroredType = Libro;[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                type MirroredLabel = ([32m"Libro"[0m : String);[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                type MirroredElemTypes = (String, String, String, String, String,[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                  String);[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                type MirroredElemLabels = (([32m"titulo"[0m : String),[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                  ([32m"idAutor"[0m : String), ([32m"autor"[0m : String), ([32m"anio"[0m : String),[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                  ([32m"editorial"[0m : String), ([32m"isbn"[0m : String))[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m            }[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m          [0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m        ],[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m      /* missing */summon[upickle.default.Reader[V]], ???, ???),[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m    ???)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mBut no implicit values were found that match type upickle.default.Reader[V].[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0mThe following import might make progress towards fixing the problem:[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m  import upickle.default.ReadWriter.join[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

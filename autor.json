@@ -1,0 +1,14 @@
+[
+    {
+        "id": "1",
+        "nombre": "Andrzej",
+        "apellidos": "Sapkowski",
+        "numLibros": "2"
+    },
+    {
+        "id": "2",
+        "nombre": "Freida",
+        "apellidos": "McFadden",
+        "numLibros": "1"
+    }
+]
