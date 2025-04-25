@@ -1,7 +1,0 @@
-[0m[[0m[33mwarn[0m] [0m[0m[33m[33m-- [E190] Potential Issue Warning: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:222:20 [0m[0m[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m222 |[0m                    nuevoId[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m[33m    |[0m                    ^^^^^^^[0m[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m    |[0mDiscarded non-Unit value of type String. Add `: Unit` to discard silently.[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m    |[0m[0m
-[0m[[0m[33mwarn[0m] [0m[0m[33m    |[0m longer explanation available when compiling with `-explain`[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
