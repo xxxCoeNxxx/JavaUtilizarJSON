@@ -228,14 +228,21 @@ object Ej11 {
     /*  val jsValue = Json.parse(librosJSON)
         val librosLista: List[Libro] = jsValue.as[List[Libro]] 
         librosLista.foreach(libro => {  */
+
         librosJSON.foreach { libro => 
-            val addLibrosToDB = new Document()
-            .append("titulo", libro.titulo)
-            .append("autor", libro.autor)
-            .append("anio", libro.anio)
-            .append("editorial", libro.editorial)
-            .append("ISBN", libro.isbn)
-            collectionLibros.insertOne(addLibrosToDB)
+            val filtro = new Document("ISBN", libro.isbn)
+            val libroExiste = collectionLibros.find(filtro).first()
+            if (libroExiste == null) {
+                val addLibrosToDB = new Document()
+                .append("titulo", libro.titulo)
+                .append("autor", libro.autor)
+                .append("anio", libro.anio)
+                .append("editorial", libro.editorial)
+                .append("ISBN", libro.isbn)
+                collectionLibros.insertOne(addLibrosToDB)
+            } else {
+                println(s"El libro con ISBN ${libro.isbn} ya existe en la base de datos.")
+            }
         }
     }
 
@@ -243,15 +250,22 @@ object Ej11 {
         val rutaJSON = os.pwd / "autor.json"
         val contAutoresJSON = os.read(rutaJSON)
         val autoresJSON = uread[List[Autor]](contAutoresJSON)
+
         autoresJSON.foreach { autor =>
-            val addAutoresToDB = new Document()
-            .append("id", autor.id)
-            .append("nombre", autor.nombre)
+            val filtro = new Document()
+            .append("nombre", autor.nombre)	
             .append("apellidos", autor.apellidos)
-            .append("numlibros", autor.numLibros)
-            collectionAutores.insertOne(addAutoresToDB)
+            val autorExiste = collectionAutores.find(filtro).first()
+            if (autorExiste == null) {
+                val addAutoresToDB = new Document()
+                .append("id", autor.id)
+                .append("nombre", autor.nombre)
+                .append("apellidos", autor.apellidos)
+                .append("numlibros", autor.numLibros)
+                collectionAutores.insertOne(addAutoresToDB)
+            } else {
+                println(s"El autor ${autor.nombre} ${autor.apellidos} ya existe en la base de datos")
             }
+        }
     }
-
-
 }

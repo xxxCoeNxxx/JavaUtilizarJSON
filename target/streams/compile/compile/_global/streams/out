@@ -1,33 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:86:41 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m86 |[0m        [33mval[0m [36mresultadoLibros[0m = collection.find().iterator()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                              ^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                              value find is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:94:42 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m94 |[0m        [33mval[0m [36mresultadoAutores[0m = collection.find().iterator()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m   |[0m                               ^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m   |[0m                               value find is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:104:40 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m104 |[0m        [33mval[0m [36mlibroExistente[0m = collection.find(filtro).first()[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                             ^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                             value find is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:114:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m114 |[0m            collection.updateOne(filtro, actualizacion)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m            ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m            value updateOne is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:144:35 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m144 |[0m        [33mval[0m [36mresultado[0m = collection.deleteOne(filtro)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                        ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                        value deleteOne is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:157:35 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m157 |[0m        [33mval[0m [36mresultado[0m = collection.deleteOne(filtro)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                        ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                        value deleteOne is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:240:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m240 |[0m            collection.insertOne(addLibrosToDB)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m            ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m            value insertOne is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:254:23 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m254 |[0m            collection.insertOne(addAutoresToDB)[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m            ^^^^^^^^^^^^^^^^^^^^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m            value insertOne is not a member of collection[0m
-[0m[[0m[31merror[0m] [0m[0m8 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:256:13 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m255 |[0m            [33mval[0m [36mfiltro[0m = [33mnew[0m Document[0m
+[0m[[0m[31merror[0m] [0m[0m[31m256 |[0m            .append([31m"nombre"[0m, autor.nombre)	[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                             ^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m               type append is not a member of object org.bson.Document[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m
