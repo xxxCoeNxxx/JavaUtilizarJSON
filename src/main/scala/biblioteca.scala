@@ -30,7 +30,8 @@ object Ej11 {
                 case "3" => actualizarLibro()
                 case "4" => eliminarLibro()
                 case "5" => leerLibrosDeJSON()
-                case "6" => salir = true
+                case "6" => leerAutoresDeJSON()
+                case "7" => salir = true
                 case _ => println("Introduce una opción válida del 1 al 5")
             }
         }
@@ -44,7 +45,8 @@ object Ej11 {
         println("3. Actualizar libro")
         println("4. Eliminar libro")
         println("5. Leer libros de JSON")
-        println("6. Salir")
+        println("6. Leer autores de JSON")
+        println("7. Salir")
         println("----------------------")
     }
 
@@ -195,5 +197,19 @@ object Ej11 {
             .append("ISBN", libro.isbn)
             collection.insertOne(addLibrosToDB)
         }
+    }
+
+    private def leerAutoresDeJSON (): Unit = {
+        val rutaJSON = os.pwd / "autor.json"
+        val contAutoresJSON = os.read(rutaJSON)
+        val autoresJSON = uread[List[Autor]](contAutoresJSON)
+        autoresJSON.foreach { autor =>
+            val addAutoresToDB = new Document()
+            .append("id", autor.id)
+            .append("nombre", autor.nombre)
+            .append("apellidos", autor.apellidos)
+            .append("numlibros", autor.numLibros)
+            collection.insertOne(addAutoresToDB)
+            }
     }
 }
