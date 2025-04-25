@@ -17,10 +17,8 @@ implicit val rwAutor: ReadWriter[Autor] = macroRW
 object Ej11 {
     private val client = MongoClients.create("mongodb://localhost:27017")
     private val database: MongoDatabase = client.getDatabase("biblioteca")
-    private val collection: MongoCollection[Document] = database.getCollection("libros")
-    //private val collectionAutores: MongoCollection[Document] = database.getCollection("autores")
-
-
+    private val collectionLibros: MongoCollection[Document] = database.getCollection("libros")
+    private val collectionAutores: MongoCollection[Document] = database.getCollection("autores")
 
     def main(args: Array[String]): Unit = {
         var salir = false
@@ -63,19 +61,18 @@ object Ej11 {
             .append("editorial", libro.editorial)
             .append("ISBN", libro.isbn)
 
-        collection.insertOne(document)
+        collectionLibros.insertOne(document)
         println("Nuevo libro creado")
         println(s"ISBN: ${libro.isbn}")
 
-        val autoresCollection = database.getCollection("autores")
         val filtro = new Document().append("id", libro.idAutor)
-        val autorDoc = autoresCollection.find(filtro).first()
+        val autorDoc = collectionAutores.find(filtro).first()
         if (autorDoc != null) {
             val numLibrosActual = autorDoc.getString("numLibros").toInt + 1
             val nuevoNumLibros = numLibrosActual
 
             val actualizacion = new Document("$set", new Document("numLibros", nuevoNumLibros.toString))
-            autoresCollection.updateOne(filtro, actualizacion)
+            collectionAutores.updateOne(filtro, actualizacion)
             println(s"El número de libros del autor ${libro.autor} se ha actualizado a $nuevoNumLibros")
         } else {
                 println(s"No se encontró al autor ${libro.autor} para actualizar el número de libros.")
@@ -84,7 +81,7 @@ object Ej11 {
 
     private def listarLibros(): Unit = {
         println("\n--- LISTA DE LIBROS ---")
-        val resultadoLibros = collection.find().iterator()
+        val resultadoLibros = collectionLibros.find().iterator()
         while (resultadoLibros.hasNext) {
             mostrarLibro(resultadoLibros.next())
         }
@@ -92,7 +89,7 @@ object Ej11 {
 
     private def listarAutores(): Unit = {
         println("\n--- LISTA AUTORES ---")
-        val resultadoAutores = collection.find().iterator()
+        val resultadoAutores = collectionAutores.find().iterator()
         while (resultadoAutores.hasNext) {
             mostrarAutor(resultadoAutores.next())
         }
@@ -102,7 +99,7 @@ object Ej11 {
         println("Ingrese el ISBN del libro a actualizar: ")
         val isbn = StdIn.readLine()
         val filtro = new Document("isbn", isbn)
-        val libroExistente = collection.find(filtro).first()
+        val libroExistente = collectionLibros.find(filtro).first()
 
         if (libroExistente != null) {
             val nuevosDatos = pedirDatosLibro()
@@ -112,7 +109,7 @@ object Ej11 {
                 .append("anio", nuevosDatos.anio)
                 .append("editorial", nuevosDatos.editorial)
                 .append("isbn", nuevosDatos.isbn))
-            collection.updateOne(filtro, actualizacion)
+            collectionLibros.updateOne(filtro, actualizacion)
             println("\nLibro actualizado")
         } else {
             println("Libro no encontrado")
@@ -142,7 +139,7 @@ object Ej11 {
         println("Introduce el ISBN del libro a eliminar")
         val isbn = StdIn.readLine()
         val filtro = new Document("isbn", isbn)
-        val resultado = collection.deleteOne(filtro)
+        val resultado = collectionLibros.deleteOne(filtro)
 
         if (resultado.getDeletedCount > 0) {
             println("\nLibro eliminado")
@@ -155,7 +152,7 @@ object Ej11 {
         println("Introduce el ID del autor a eliminar")
         val id = StdIn.readLine()
         val filtro = new Document("id", id)
-        val resultado = collection.deleteOne(filtro)
+        val resultado = collectionAutores.deleteOne(filtro)
 
         if (resultado.getDeletedCount > 0) {
             println("\nAutor eliminado")
@@ -189,17 +186,16 @@ object Ej11 {
         val isbn = StdIn.readLine()
 
         // Buscar el autor por nombre y apellidos
-        val autoresCollection = database.getCollection("autores")
         val filtro = new Document()
             .append("nombre", nombre)
             .append("apellidos", apellidos)
-        val autorDoc = autoresCollection.find(filtro).first()
+        val autorDoc = collectionAutores.find(filtro).first()
         val idAutor = if (autorDoc != null) autorDoc.getString("id")
         else {
             println("Autor no encontrado, quieres crearlo? (si/no)")
             if (StdIn.readLine().toLowerCase == "si") {
                 // Hay que buscar el id más alto y aumentar el valor en 1
-                val maxIdAutor = autoresCollection.find().sort(new Document("id", -1)).limit(1).first()
+                val maxIdAutor = collectionAutores.find().sort(new Document("id", -1)).limit(1).first()
                 val nuevoId = if (maxIdAutor != null) {
                     val idActual = maxIdAutor.getString("id").toInt
                     (idActual + 1).toString
@@ -212,7 +208,7 @@ object Ej11 {
                     .append("nombre", nombre)
                     .append("apellidos", apellidos)
                     .append("numLibros", "0")
-                autoresCollection.insertOne(nuevoAutor)
+                collectionAutores.insertOne(nuevoAutor)
                 println(s"Autor creado con ID: $nuevoId")
                 nuevoId
             } else {
@@ -239,7 +235,7 @@ object Ej11 {
             .append("anio", libro.anio)
             .append("editorial", libro.editorial)
             .append("ISBN", libro.isbn)
-            collection.insertOne(addLibrosToDB)
+            collectionLibros.insertOne(addLibrosToDB)
         }
     }
 
@@ -253,7 +249,7 @@ object Ej11 {
             .append("nombre", autor.nombre)
             .append("apellidos", autor.apellidos)
             .append("numlibros", autor.numLibros)
-            collection.insertOne(addAutoresToDB)
+            collectionAutores.insertOne(addAutoresToDB)
             }
     }
 
