@@ -18,6 +18,8 @@ object Ej11 {
     private val client = MongoClients.create("mongodb://localhost:27017")
     private val database: MongoDatabase = client.getDatabase("biblioteca")
     private val collection: MongoCollection[Document] = database.getCollection("libros")
+    //private val collectionAutores: MongoCollection[Document] = database.getCollection("autores")
+
 
 
     def main(args: Array[String]): Unit = {
@@ -27,11 +29,12 @@ object Ej11 {
             StdIn.readLine() match {
                 case "1" => crearLibro()
                 case "2" => listarLibros()
-                case "3" => actualizarLibro()
-                case "4" => eliminarLibro()
-                case "5" => leerLibrosDeJSON()
-                case "6" => leerAutoresDeJSON()
-                case "7" => salir = true
+                case "3" => listarAutores()
+                case "4" => actualizarLibro()
+                case "5" => eliminarSeleccionado()
+                case "6" => leerLibrosDeJSON()
+                case "7" => leerAutoresDeJSON()
+                case "8" => salir = true
                 case _ => println("Introduce una opción válida del 1 al 5")
             }
         }
@@ -42,11 +45,12 @@ object Ej11 {
         println("\n --- MENU ---")
         println("1. Crear un libro")
         println("2. Listar los libros")
-        println("3. Actualizar libro")
-        println("4. Eliminar libro")
-        println("5. Leer libros de JSON")
-        println("6. Leer autores de JSON")
-        println("7. Salir")
+        println("3. Listar los autores")
+        println("4. Actualizar libro")
+        println("5. Eliminar libro o autor")
+        println("6. Leer libros de JSON")
+        println("7. Leer autores de JSON")
+        println("8. Salir")
         println("----------------------")
     }
 
@@ -86,6 +90,14 @@ object Ej11 {
         }
     }
 
+    private def listarAutores(): Unit = {
+        println("\n--- LISTA AUTORES ---")
+        val resultadoAutores = collection.find().iterator()
+        while (resultadoAutores.hasNext) {
+            mostrarAutor(resultadoAutores.next())
+        }
+    }
+
     private def actualizarLibro(): Unit = {
         println("Ingrese el ISBN del libro a actualizar: ")
         val isbn = StdIn.readLine()
@@ -117,6 +129,15 @@ object Ej11 {
         ---------------------------------------------""")
     }
 
+    private def mostrarAutor(document: Document): Unit = {
+        println(s"""
+         ID: ${document.getString("id")}
+         Nombre: ${document.getString("nombre")}
+         Apellidos: ${document.getString("apellidos")}
+         NumLibros: ${document.getString("numLibros")}
+        ---------------------------------------------""")
+    }
+
     private def eliminarLibro(): Unit = {
         println("Introduce el ISBN del libro a eliminar")
         val isbn = StdIn.readLine()
@@ -127,6 +148,29 @@ object Ej11 {
             println("\nLibro eliminado")
         } else {
             println("\nLibro no encontrado")
+        }
+    }
+
+    private def eliminarAutor(): Unit = {
+        println("Introduce el ID del autor a eliminar")
+        val id = StdIn.readLine()
+        val filtro = new Document("id", id)
+        val resultado = collection.deleteOne(filtro)
+
+        if (resultado.getDeletedCount > 0) {
+            println("\nAutor eliminado")
+        } else {
+            println("\nAutor no encontrado")
+        }
+    }
+
+    private def eliminarSeleccionado(): Unit = {
+        println("Pulsa 1 para eliminar un libro o 2 para eliminar un autor")
+        val opcion = StdIn.readLine()
+        opcion match {
+            case "1" => eliminarLibro()
+            case "2" => eliminarAutor()
+            case _ => println ("Opción no válida")
         }
     }
 
@@ -212,4 +256,6 @@ object Ej11 {
             collection.insertOne(addAutoresToDB)
             }
     }
+
+
 }
