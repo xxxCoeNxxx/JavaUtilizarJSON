@@ -195,30 +195,35 @@ object Ej11 {
             .append("nombre", nombre)
             .append("apellidos", apellidos)
         val autorDoc = collectionAutores.find(filtro).first()
-        val idAutor = if (autorDoc != null) autorDoc.getString("id")
-        else {
+        var idAutor = ""
+        if (autorDoc != null) {
+            idAutor = autorDoc.getString("id")
+        } else {
             println("Autor no encontrado, quieres crearlo? (si/no)")
-            if (StdIn.readLine().toLowerCase == "si") {
-                // Hay que buscar el id más alto y aumentar el valor en 1
-                val maxIdAutor = collectionAutores.find().sort(new Document("id", -1)).limit(1).first()
-                val nuevoId = if (maxIdAutor != null) {
-                    val idActual = maxIdAutor.getString("id").toInt
-                    (idActual + 1).toString
-                } else {
-                    "1" // si no hay autores, nuevoId será 1 diréctamente en string
-                }
+            var salir = false
+            while (!salir) {
+                if (StdIn.readLine().toLowerCase == "si") {
+                    // Hay que buscar el id más alto y aumentar el valor en 1
+                    val maxIdAutor = collectionAutores.find().sort(new Document("id", -1)).limit(1).first()
+                    val nuevoId = if (maxIdAutor != null) {
+                        val idActual = maxIdAutor.getString("id").toInt
+                        (idActual + 1).toString
+                    } else {
+                        "1" // si no hay autores, nuevoId será 1 diréctamente en string
+                    }
 
-                val nuevoAutor = new Document()
-                    .append("id", nuevoId)
-                    .append("nombre", nombre)
-                    .append("apellidos", apellidos)
-                    .append("numLibros", "0")
-                collectionAutores.insertOne(nuevoAutor)
-                println(s"Autor creado con ID: $nuevoId")
-                nuevoId
-            } else {
-                println("No se puede crear el libro sin autor")
-                return null // Salimos de la función si no se puede crear el libro
+                    val nuevoAutor = new Document()
+                        .append("id", nuevoId)
+                        .append("nombre", nombre)
+                        .append("apellidos", apellidos)
+                        .append("numLibros", "0")
+                    collectionAutores.insertOne(nuevoAutor)
+                    println(s"Autor creado con ID: $nuevoId")
+                    idAutor = nuevoId
+                } else {
+                    println("No se puede crear el libro sin autor")
+                    salir = true
+                }
             }
         }
         val autorCompleto = s"$nombre $apellidos"

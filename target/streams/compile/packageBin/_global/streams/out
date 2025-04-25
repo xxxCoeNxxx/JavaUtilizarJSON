@@ -1,1 +1,45 @@
-[0m[[0m[0mdebug[0m] [0m[0mJar uptodate: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\mongodb-crud_3-1.0.jar[0m
+[0m[[0m[0mdebug[0m] [0m[0mPackaging C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\mongodb-crud_3-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Autor$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Autor$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Autor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Autor.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Autor.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Autor.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package$$anon$1.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package$$anon$2.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package$$anon$3.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package$$anon$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package$$anon$4.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package$$anon$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package$$anon$5.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package$$anon$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package$$anon$6.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	biblioteca$package.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\biblioteca$package.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BibliotecaJSON$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\BibliotecaJSON$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BibliotecaJSON.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\BibliotecaJSON.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	BibliotecaJSON.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\BibliotecaJSON.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Ej11$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Ej11$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Ej11.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Ej11.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Ej11.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Ej11.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Libro$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Libro$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Libro.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Libro.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	Libro.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\target\scala-3.6.4\classes\Libro.tasty[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
