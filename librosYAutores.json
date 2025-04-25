@@ -1,0 +1,43 @@
+{
+  "autores": [
+    {
+      "id": "1",
+      "nombre": "Andrzej",
+      "apellidos": "Sapkowski",
+      "numLibros": "2"
+    },
+    {
+        "id": "2",
+        "nombre": "Freida",
+        "apellidos": "McFadden",
+        "numLibros": "1"
+    }
+  ],
+  "libros": [
+    {
+        "titulo": "Baptism Of Fire",
+        "idAutor": "1",
+        "autor": "Andrzej Sapkowski",
+        "anio": "2023",
+        "editorial": "Orion",
+        "isbn": "9781399611435"
+    },
+    {
+        "titulo": "Camino Sin Retorno",
+        "idAutor": "1",
+        "autor": "Andrzej Sapkowski",
+        "anio": "2023",
+        "editorial": "Alamut",
+        "isbn": "9788498891362"
+    },
+    {
+        "titulo": "Tras La Puerta",
+        "idAutor": "2",
+        "autor": "Freida McFadden",
+        "anio": "2025",
+        "editorial": "Suma",
+        "isbn": "9788410257733"
+    }
+  ]
+}
+

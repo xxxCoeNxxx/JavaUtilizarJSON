@@ -1,6 +1,15 @@
-[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E008] Not Found Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:256:13 [0m[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m255 |[0m            [33mval[0m [36mfiltro[0m = [33mnew[0m Document[0m
-[0m[[0m[31merror[0m] [0m[0m[31m256 |[0m            .append([31m"nombre"[0m, autor.nombre)	[0m
-[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                             ^[0m[0m
-[0m[[0m[31merror[0m] [0m[0m[31m    |[0m               type append is not a member of object org.bson.Document[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m-- [E007] Type Mismatch Error: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:228:22 [0m[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m228 |[0m        Libro(titulo, idAutor, autorCompleto, anio, editorial, isbn)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m[31m    |[0m                      ^^^^^^^[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                      Found:    (idAutor : String | Unit)[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m                      Required: String[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m[0m
+[0m[[0m[31merror[0m] [0m[0m[31m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m-- [E190] Potential Issue Warning: C:\Users\Coen\Desktop\CURSO JAVA\11\JavaUtilizarJSON\src\main\scala\biblioteca.scala:220:20 [0m[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m220 |[0m                    nuevoId[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m    |[0m                    ^^^^^^^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m    |[0mDiscarded non-Unit value of type String. Add `: Unit` to discard silently.[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m    |[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m    |[0m longer explanation available when compiling with `-explain`[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

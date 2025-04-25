@@ -14,6 +14,9 @@ case class Autor(id: String, nombre: String, apellidos: String, numLibros: Strin
 implicit val rwAutor: ReadWriter[Autor] = macroRW
 //implicit val autorFormat: OFormat[Autor] = Json.format[Autor]
 
+case class BibliotecaJSON(autores: List[Autor], libros: List[Libro])
+implicit val rwBiblioteca: ReadWriter[BibliotecaJSON] = macroRW
+
 object Ej11 {
     private val client = MongoClients.create("mongodb://localhost:27017")
     private val database: MongoDatabase = client.getDatabase("biblioteca")
@@ -32,7 +35,8 @@ object Ej11 {
                 case "5" => eliminarSeleccionado()
                 case "6" => leerLibrosDeJSON()
                 case "7" => leerAutoresDeJSON()
-                case "8" => salir = true
+                case "8" => leerJSONConjunto()
+                case "9" => salir = true
                 case _ => println("Introduce una opción válida del 1 al 5")
             }
         }
@@ -48,7 +52,8 @@ object Ej11 {
         println("5. Eliminar libro o autor")
         println("6. Leer libros de JSON")
         println("7. Leer autores de JSON")
-        println("8. Salir")
+        println("8. Leer libros y autores de JSON")
+        println("9. Salir")
         println("----------------------")
     }
 
@@ -265,6 +270,45 @@ object Ej11 {
                 collectionAutores.insertOne(addAutoresToDB)
             } else {
                 println(s"El autor ${autor.nombre} ${autor.apellidos} ya existe en la base de datos")
+            }
+        }
+    }
+
+    private def leerJSONConjunto (): Unit = {
+        val rutaJSON = os.pwd / "librosYAutores.json"
+        val contenidoLibrosYAutoresJSON = os.read(rutaJSON)
+        val biblioteca = uread[BibliotecaJSON](contenidoLibrosYAutoresJSON)
+       
+        biblioteca.autores.foreach { autor =>
+            val filtro = new Document()
+            .append("nombre", autor.nombre)
+            .append("apellidos", autor.apellidos)
+            val autorExiste = collectionAutores.find(filtro).first()
+            if (autorExiste == null) {
+                val addAutoresToDB = new Document()
+                .append("id", autor.id)
+                .append("nombre", autor.nombre)
+                .append("apellidos", autor.apellidos)
+                .append("numlibros", autor.numLibros)
+                collectionAutores.insertOne(addAutoresToDB)
+            } else {
+                println(s"El autor ${autor.nombre} ${autor.apellidos} ya existe en la base de datos")
+            }
+        }
+
+        biblioteca.libros.foreach { libro =>
+            val filtro = new Document("ISBN", libro.isbn)
+            val libroExiste = collectionLibros.find(filtro).first()
+            if (libroExiste == null) {
+                val addLibrosToDB = new Document()
+                .append("titulo", libro.titulo)
+                .append("autor", libro.autor)
+                .append("anio", libro.anio)
+                .append("editorial", libro.editorial)
+                .append("ISBN", libro.isbn)
+                collectionLibros.insertOne(addLibrosToDB)
+            } else {
+                println(s"El libro con ISBN ${libro.isbn} ya existe en la base de datos.")
             }
         }
     }
